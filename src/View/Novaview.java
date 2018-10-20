@@ -44,7 +44,7 @@ public class Novaview extends javax.swing.JFrame {
         initComponents();
         estadoInicialView();
         jTableView.setModel(tableModel);
-//        jTableView.setRowSorter(new TableRowSorter(tableModel));
+        jTableView.setRowSorter(new TableRowSorter(tableModel));
         carregaDadosBanco();
         txtCodigoProduto.setDocument(new ValidaNumero());
         txtQuantidadeProduto.setDocument(new ValidaNumero());
@@ -756,6 +756,7 @@ public class Novaview extends javax.swing.JFrame {
         txtAreaDescricao.setEnabled(false);
         lblDescricao.setForeground(cinzaClaro);
     
+        jTableView.setEnabled(true);
     }
    
     private void carregaDadosBanco(){
