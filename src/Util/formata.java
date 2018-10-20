@@ -15,8 +15,10 @@ import javax.swing.text.NumberFormatter;
 import javax.swing.text.PlainDocument;
 
 /**
- *
- * @author lucas
+ * Classe para Validar <b>Mascaras</b>,onde<br>
+ * seram contidos valores e metodos para o mesmo.
+ * @author Lucas de Oliveira da Silva
+ * @version 1.0 
  */
 public class formata{
     /**

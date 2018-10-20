@@ -11,14 +11,16 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- *
- * @author lucas
+ * Classe para Validar <b>Numeros</b>,onde<br>
+ * seram contidos valores e metodos para o mesmo.
+ * @author Lucas de Oliveira da Silva
+ * @version 1.0 
  */
 public class ValidaNumero extends PlainDocument{
     /**
      *Método usado para Validar o numero em <b>String</b><br>
      * <b>Uso</b><br><br>
-     * 
+     * Objeto.setDocument(new ValidaNumero());
      * @param i Posicionamento onde String tera valores adicionados 
      * @param string String em questão, onde será feito a validação
      * @param as o atributo a ser associado com a string 
