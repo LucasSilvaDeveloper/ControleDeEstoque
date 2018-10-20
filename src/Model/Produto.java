@@ -142,7 +142,7 @@ public class Produto {
     }
     
     /**
-     *Essa sobrecarga do metodo toString onde apresenta todos os parametros do objeto <b>Produto<b><br>
+     *Essa sobrecarga do metodo toString onde apresenta todos os parametros do objeto <b>Produto</b><br>
      *formatados na saida do proprio java, utilizado para testes 
      * @return formatação do objeto em String no console do java
      */

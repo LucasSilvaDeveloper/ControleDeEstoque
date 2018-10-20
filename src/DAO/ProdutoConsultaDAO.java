@@ -25,7 +25,7 @@ public class ProdutoConsultaDAO {
 
     public ProdutoConsultaDAO() {
         try {
-            
+        
             nova.conectar();
     
         } catch (Exception e) {
