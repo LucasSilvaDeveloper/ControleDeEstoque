@@ -15,11 +15,16 @@ import javax.swing.text.NumberFormatter;
 import javax.swing.text.PlainDocument;
 
 /**
- *
- * @author lucas
+ * Classe para Validar <b>Mascaras</b>,onde<br>
+ * seram contidos valores e metodos para o mesmo.
+ * @author Lucas de Oliveira da Silva
+ * @version 1.0 
  */
 public class formata{
-    
+    /**
+     *Método usado para Validar mascara de Telefone <br>
+     * 
+     */
     public static DefaultFormatterFactory telefone(){
         MaskFormatter maskTelefone = null;
         try {
@@ -30,7 +35,10 @@ public class formata{
         }
         return (new DefaultFormatterFactory(maskTelefone, maskTelefone));
     }
-    
+    /**
+     *Método usado para Validar mascara de Data <br>
+     * 
+     */
     public static DefaultFormatterFactory data(){
     
         MaskFormatter maskData = null;
