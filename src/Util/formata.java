@@ -19,7 +19,10 @@ import javax.swing.text.PlainDocument;
  * @author lucas
  */
 public class formata{
-    
+    /**
+     *Método usado para Validar masca de Telefone em <b>String</b><br>
+     * 
+     */
     public static DefaultFormatterFactory telefone(){
         MaskFormatter maskTelefone = null;
         try {
@@ -30,7 +33,10 @@ public class formata{
         }
         return (new DefaultFormatterFactory(maskTelefone, maskTelefone));
     }
-    
+    /**
+     *Método usado para Validar masca de Data em <b>String</b><br>
+     * 
+     */
     public static DefaultFormatterFactory data(){
     
         MaskFormatter maskData = null;
