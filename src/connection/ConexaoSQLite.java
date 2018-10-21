@@ -52,7 +52,7 @@ public class ConexaoSQLite {
     }
     
     /**
-     * Esse metodo serve para desconectar do banco de dados
+     * Esse metodo serve para desconectar do banco de dados<br>
      * <b>Uso</b><br>
      * ConexaoSQLite conexaoSQLite = new ConexaoSQLite();<br>
      * conexaoSQLite.desconectar();
@@ -75,8 +75,8 @@ public class ConexaoSQLite {
     }
     
     /**
-     * Esse metodo cria o <b>Statement</b> permitindo comando ao <b>Banco de Dados</b>
-     * sem receber parametros do usuario.
+     * Esse metodo cria o <b>Statement</b> permitindo comando <b>SQL</b> ao <b>Banco de Dados</b>
+     * sem receber parametros do usuario.<br>
      * <b>Uso</b>
      * ConexaoSQLite conexaoSQLite = new ConexaoSQLite();<br>
      * conexaSQLite.criarStatemet();
@@ -92,10 +92,13 @@ public class ConexaoSQLite {
         }
     
     /**
-     * Esse metodo 
+     * Esse metodo cria o <b>Statement Preparado</b>, é uma forma pre-processada do Statement que permite<br>
+     * a passagem de parametros pelo comando <b>SQL</b> pelo usuario, sendo utilizado para consultar<br>
+     * um produto especifico no banco de dados.
      * 
-     * @param sql 
-     * @return
+     * @param sql É o parametro que vem pelo campo de pesquisa da view
+     * @return retorna o <b>criarPrepareStatement</b> com a String <b>SQL</b> fornecida pelo<br>
+     * usuario na view principal
      */
     public PreparedStatement criarPreparedStatemant(String sql){
         try {

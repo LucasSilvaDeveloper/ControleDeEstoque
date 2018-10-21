@@ -12,8 +12,9 @@ import javax.swing.table.AbstractTableModel;
 
 
 /**
- *
- * @author lucas
+ * Classe que define o model da table da view
+ * @author Lucas de Oliveira da Silva
+ * @version 1.0
  */
 public class ProdutoTableModel extends AbstractTableModel{
 
@@ -21,26 +22,53 @@ public class ProdutoTableModel extends AbstractTableModel{
     private String[] colunas = {"ID", "NOME", "QTD", "DATA COMPRA", "DESCRIÇÃO"};
 
     //nao permite a edição dos valores da tabela
+
+    /**
+     * Metodo para impedir que qualquer valor nas linhas<br>
+     * da tabela sejam editada na propria tabela
+     * @param i nao utilizado
+     * @param i1 nao utilizado
+     * @return esse retorno impede a edição dos conteiners da tabela
+     */
     @Override
     public boolean isCellEditable(int i, int i1) {
         return false;
     }
     
+    /**
+     * metodos para adicionar o nome das colunas da tabela
+     * @param colunas nomes das colunas 
+     * @return usado pela table para pegar os nomes e setar na tabela
+     */
     @Override
     public String getColumnName(int colunas) {
         return this.colunas[colunas];
     }
     
+    /**
+     * Metodo para montar a quantidade de linhas que a tabela precisa
+     * @return retorna o tamanho da tabela
+     */
     @Override
     public int getRowCount() {
         return dados.size();
     }
 
+    /**
+     * Metodo para retornar quantidade de colunas
+     * @return quantidade de colunas
+     */
     @Override
     public int getColumnCount() {
         return colunas.length; 
     }
 
+    /**
+     * Metodo utilizado que retorna o valor de uma linha da tabela
+     * @param linha Linha da tabela
+     * @param coluna Coluna da tabela
+     * @return retorna o objeto da linha selecionada
+     */
     @Override
     public Object getValueAt(int linha, int coluna) {
         
@@ -59,6 +87,12 @@ public class ProdutoTableModel extends AbstractTableModel{
         return null;
     }
     
+    /**
+     * Metodo que torna possivel o filtro para a tabela poder<br>
+     * mostrar os valores por ordem alfabetica, quantidade ou id
+     * @param columnIndex recebe qual a coluna selecionada
+     * @return retorna o filtro desejado 
+     */
     @Override
     public Class<?> getColumnClass(int columnIndex)
     {
@@ -77,11 +111,20 @@ public class ProdutoTableModel extends AbstractTableModel{
 	}
     }
     
+    /**
+     * Metodo não utilizado!
+     * @param o
+     * @param i
+     * @param i1
+     */
     @Override
     public void setValueAt(Object o, int i, int i1) {
         
     }
     
+    /**
+     * Metodo que quando iniciado lista todos os produtos da tabela
+     */
     public void listarProdutos(){
         dados.clear();
         ProdutoConsultaDAO novo = new ProdutoConsultaDAO();
@@ -91,6 +134,10 @@ public class ProdutoTableModel extends AbstractTableModel{
         this.fireTableDataChanged();
     }
     
+    /**
+     * Metodo para a pesquisa no banco de dados por parametro
+     * @param novo string passada como parametro
+     */
     public void retornoPesquisaProduto(String novo){
      dados.clear();
         ProdutoConsultaDAO novaPesquisa = new ProdutoConsultaDAO();

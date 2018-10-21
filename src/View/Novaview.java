@@ -10,7 +10,6 @@ import Model.ProdutoTableModel;
 import Util.ValidaNome;
 import Util.ValidaNumero;
 import java.awt.Color;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.ImageIcon;

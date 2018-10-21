@@ -11,17 +11,29 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author lucas
+ * Classe onde é possivel inserir, atualizar e deletar produtos<br>
+ * do banco de dados
+ * @author Lucas de Oliveira da Silva
+ * @version 1.0
  */
 public class ProdutoDAO {
     ConexaoSQLite conexaosqlite = new ConexaoSQLite();
 
+    /**
+     * Metodo default que sera executado sempre que instancias um objeto<br>
+     * desta classe
+     */
     public ProdutoDAO() { 
         conexaosqlite.conectar();
     }
-    
-    
+
+    /**
+     * Esse metodo é da classe <b>ProdutoDAO</b> que recebe como parametro<br>
+     * <b>Objeto Produto</b><br>
+     * Produto novo = new Produto();<br> 
+     * @param p É o objeto com todos os parametros diponiveis para o metodo salva-los<br>
+     * no banco de dados.
+     */
     public void gravaProduto(Produto p){
                 
         String sql = "insert into Produto("
@@ -56,6 +68,11 @@ public class ProdutoDAO {
             
         }
     }
+    
+    /**
+     * Metodo para excluir um produto no banco de dados
+     * @param p Recebe um objeto produto e acessa seu id como parametro para exclusao
+     */
     public void deletarProduto(Produto p){
                 
         String sql = "delete from Produto where id = ?";
@@ -83,7 +100,12 @@ public class ProdutoDAO {
         }
     }
     
-     public void atualizarProduto(Produto p){
+    /**
+     * Metodo para atualizar produto no banco de dados
+     * @param p recebe como parametro um objeto Produto,<br>
+     * contendo os novos dados
+     */
+    public void atualizarProduto(Produto p){
                 
         String sql = "update Produto "
               + "set nome_produto = ?,"
@@ -118,16 +140,6 @@ public class ProdutoDAO {
             }
             conexaosqlite.desconectar();
             
-        }
-    }
-    
-
-    @Override
-    public void finalize() throws Throwable{
-        try {
-            conexaosqlite.desconectar();
-        } finally {
-            super.finalize();
         }
     }
 }

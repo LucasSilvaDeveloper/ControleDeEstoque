@@ -22,3 +22,23 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /dist/
+nbproject/private/private.xml
+nbproject/private/private.properties
+nbproject/private/config.properties
+build/classes/Imagens/img_x_branco.png
+build/classes/Imagens/img_linha_vermelha.png
+build/classes/Imagens/img_linha_branca.png
+build/classes/Imagens/icon_cancel_blue.png
+build/classes/Imagens/icon_add_blue.png
+build/classes/.netbeans_update_resources
+build/classes/View/viewCadastroProduto.form
+build/classes/View/Novaview.form
+build/classes/Imagens/img_x_vermelho.png
+build/classes/Imagens/icons8_Database_Administrator_50px_2.png
+build/classes/Imagens/icon_save_blue.png
+build/classes/Imagens/icon_question.png
+build/classes/Imagens/icon_plus_write.png
+build/classes/Imagens/icon_edit_blue.png
+build/classes/Imagens/icon_delete_blue.png
+build/classes/.netbeans_automatic_build
+build/built-jar.properties

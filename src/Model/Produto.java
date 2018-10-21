@@ -20,8 +20,8 @@ public class Produto {
     private String descricao;
     
     /**
-     *Metodo Construtor default da classe <b>Produto</b><br>
-     *<b>Uso</b><br>
+     * Metodo Construtor default da classe <b>Produto</b><br>
+     * <b>Uso</b><br>
      * Produto produto = new Produto();
      */
     public Produto() {
