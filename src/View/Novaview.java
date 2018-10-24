@@ -369,6 +369,7 @@ public class Novaview extends javax.swing.JFrame {
         txtNomeProduto.setForeground(new java.awt.Color(255, 255, 255));
         txtNomeProduto.setToolTipText("Nome do produto");
         txtNomeProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtNomeProduto.setNextFocusableComponent(txtQuantidadeProduto);
         txtNomeProduto.setOpaque(false);
 
         txtQuantidadeProduto.setBackground(new java.awt.Color(153, 153, 153));
@@ -376,6 +377,7 @@ public class Novaview extends javax.swing.JFrame {
         txtQuantidadeProduto.setForeground(new java.awt.Color(255, 255, 255));
         txtQuantidadeProduto.setToolTipText("Nome do produto");
         txtQuantidadeProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtQuantidadeProduto.setNextFocusableComponent(jDataCompra);
         txtQuantidadeProduto.setOpaque(false);
 
         jDataCompra.setBackground(new java.awt.Color(255, 255, 255));
@@ -438,6 +440,7 @@ public class Novaview extends javax.swing.JFrame {
         btnSalvar.setBorder(null);
         btnSalvar.setBorderPainted(false);
         btnSalvar.setContentAreaFilled(false);
+        btnSalvar.setFocusPainted(false);
         btnSalvar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSalvar.setIconTextGap(10);
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -490,17 +493,16 @@ public class Novaview extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addGap(5, 5, 5)
                                 .addComponent(txtPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                    .addComponent(lblQuantidade)
-                                    .addGap(45, 45, 45)
-                                    .addComponent(txtQuantidadeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                    .addComponent(lblDataCompra)
-                                    .addGap(14, 14, 14)
-                                    .addComponent(jDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lblDescricao)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
+                                .addComponent(lblQuantidade)
+                                .addGap(45, 45, 45)
+                                .addComponent(txtQuantidadeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
+                                .addComponent(lblDataCompra)
+                                .addGap(14, 14, 14)
+                                .addComponent(jDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDescricao)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(TelaEstoqueLayout.createSequentialGroup()
                         .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1074,7 +1076,7 @@ public class Novaview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Novaview().setVisible(true);
+                
             }
         });
     }

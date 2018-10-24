@@ -304,20 +304,18 @@
                                           <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                                           <Component id="txtPesquisarProduto" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblQuantidade" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
-                                              <Component id="txtQuantidadeProduto" min="-2" pref="180" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="lblDataCompra" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
-                                              <Component id="jDataCompra" min="-2" pref="140" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="lblDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblQuantidade" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
+                                          <Component id="txtQuantidadeProduto" min="-2" pref="180" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblDataCompra" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                                          <Component id="jDataCompra" min="-2" pref="140" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" alignment="0" min="-2" pref="360" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -598,6 +596,9 @@
                         </MatteColorBorder>
                       </Border>
                     </Property>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtQuantidadeProduto"/>
+                    </Property>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                 </Component>
@@ -619,6 +620,9 @@
                           <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
                         </MatteColorBorder>
                       </Border>
+                    </Property>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="jDataCompra"/>
                     </Property>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
@@ -729,6 +733,7 @@
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
+                    <Property name="focusPainted" type="boolean" value="false"/>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="iconTextGap" type="int" value="10"/>
                   </Properties>
