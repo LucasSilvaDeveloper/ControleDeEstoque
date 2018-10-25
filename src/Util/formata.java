@@ -17,32 +17,35 @@ import javax.swing.text.PlainDocument;
 /**
  * Classe para Validar <b>Mascaras</b>,onde<br>
  * seram contidos valores e metodos para o mesmo.
+ *
  * @author Lucas de Oliveira da Silva
- * @version 1.0 
+ * @version 1.0
  */
-public class formata{
+public class formata {
+
     /**
-     *Método usado para Validar mascara de Telefone <br>
-     * 
+     * Método usado para Validar mascara de Telefone <br>
+     *
      */
-    public static DefaultFormatterFactory telefone(){
+    public static DefaultFormatterFactory telefone() {
         MaskFormatter maskTelefone = null;
         try {
             maskTelefone = new MaskFormatter("(##)#####--####");
             maskTelefone.setPlaceholderCharacter('_');
         } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null,"erro ao criar a mascara!: "+ ex);
+            JOptionPane.showMessageDialog(null, "erro ao criar a mascara!: " + ex);
         }
         return (new DefaultFormatterFactory(maskTelefone, maskTelefone));
     }
+
     /**
-     *Método usado para Validar mascara de Data <br>
-     * 
+     * Método usado para Validar mascara de Data <br>
+     *
      */
-    public static DefaultFormatterFactory data(){
-    
+    public static DefaultFormatterFactory data() {
+
         MaskFormatter maskData = null;
-        
+
         try {
             maskData = new MaskFormatter("##/##/####");
             maskData.setPlaceholderCharacter('_');
@@ -51,5 +54,5 @@ public class formata{
         }
         return (new DefaultFormatterFactory(maskData, maskData));
     }
-    
+
 }

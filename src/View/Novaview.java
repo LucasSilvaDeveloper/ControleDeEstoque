@@ -27,15 +27,15 @@ public class Novaview extends javax.swing.JFrame {
     ImageIcon iconCancelarazul = new ImageIcon(getClass().getResource("/Imagens/icon_cancel_blue.png"));
     ImageIcon iconEditarzaul = new ImageIcon(getClass().getResource("/Imagens/icon_edit_blue.png"));
     ImageIcon iconExcluirazul = new ImageIcon(getClass().getResource("/Imagens/icon_delete_blue.png"));
-    
-    Color cinzaClaro = new Color(188,188,188);
-    
+
+    Color cinzaClaro = new Color(188, 188, 188);
+
     ProdutoTableModel tableModel = new ProdutoTableModel();
-    
+
     boolean valor = false;
-    
-    
-    int x,y;
+
+    int x, y;
+
     /**
      * Creates new form Novaview
      */
@@ -713,7 +713,7 @@ public class Novaview extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel3MousePressed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
-        this.setLocation(this.getLocation().x+evt.getX() - x, this.getLocation().y+ evt.getY() -y);        // TODO add your handling code here:
+        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3MouseDragged
 
     private void txtminimizaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtminimizaMouseExited
@@ -752,21 +752,13 @@ public class Novaview extends javax.swing.JFrame {
     private void txtCodigoProdutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodigoProdutoFocusGained
     }//GEN-LAST:event_txtCodigoProdutoFocusGained
 
-    private void jPanelControleEstoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelControleEstoqueMouseEntered
-        jPanelControleEstoque.setBackground(new Color(151, 130, 186));                // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelControleEstoqueMouseEntered
-
-    private void jPanelControleEstoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelControleEstoqueMouseExited
-        jPanelControleEstoque.setBackground(new Color(85,65,118));        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanelControleEstoqueMouseExited
-
     private void jPanelEmBreveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelEmBreveMouseEntered
         jPanelEmBreve.setBackground(new Color(151, 130, 186));                // TODO add your handling code here:
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jPanelEmBreveMouseEntered
 
     private void jPanelEmBreveMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelEmBreveMouseExited
-        jPanelEmBreve.setBackground(new Color(85,65,118)); // TODO add your handling code here:
+        jPanelEmBreve.setBackground(new Color(85, 65, 118)); // TODO add your handling code here:
     }//GEN-LAST:event_jPanelEmBreveMouseExited
 
     private void txtPesquisarProdutoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarProdutoKeyReleased
@@ -774,68 +766,69 @@ public class Novaview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisarProdutoKeyReleased
 
     private void jTableViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableViewMouseClicked
-        if(jTableView.getSelectedRow() != -1){
-            
+        if (jTableView.getSelectedRow() != -1) {
+
             btnEditar.setEnabled(true);
             btnEditar.setForeground(Color.white);
-            
+
             btnExcluir.setEnabled(true);
             btnExcluir.setForeground(Color.WHITE);
-            
-        }
-        else{
-            
+
+        } else {
+
 //            btnEditar.setEnabled(false);
 //            btnEditar.setForeground(cinzaClaro);
 //            
 //            btnExcluir.setEnabled(false);
 //            btnExcluir.setForeground(cinzaClaro);
-            
-
         }
     }//GEN-LAST:event_jTableViewMouseClicked
 
     private void jTableViewFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableViewFocusLost
-              // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTableViewFocusLost
 
     private void txtPesquisarProdutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPesquisarProdutoFocusGained
-      
+
     }//GEN-LAST:event_txtPesquisarProdutoFocusGained
 
     private void txtPesquisarProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPesquisarProdutoMouseClicked
-        
+
         btnEditar.setEnabled(false);
         btnEditar.setForeground(cinzaClaro);
-        
+
         btnExcluir.setEnabled(false);
         btnExcluir.setForeground(cinzaClaro);
-        
+
         jTableView.clearSelection();// TODO add your handling code here:
     }//GEN-LAST:event_txtPesquisarProdutoMouseClicked
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if(naoCampoVazio() && validaDate()){
+        if (naoCampoVazio() && validaDate()) {
 
             SimpleDateFormat dt = new SimpleDateFormat("dd/MM/YYYY");
 
             produtoController novo = new produtoController();
 
-            if(valor){
+            if (valor) {
                 novo.novoProduto(
-                    Integer.parseInt(txtCodigoProduto.getText()),
-                    txtNomeProduto.getText(),
-                    Integer.parseInt(txtQuantidadeProduto.getText()),
-                    String.valueOf(dt.format(jDataCompra.getDate())),
-                    txtAreaDescricao.getText());
+                        Integer.parseInt(txtCodigoProduto.getText()),
+                        txtNomeProduto.getText(),
+                        Integer.parseInt(txtQuantidadeProduto.getText()),
+                        String.valueOf(dt.format(jDataCompra.getDate())),
+                        txtAreaDescricao.getText());
 
-            }else{
-                novo.atualizarProduto(
-                    Integer.parseInt(txtCodigoProduto.getText()),
-                    txtNomeProduto.getText(),
-                    Integer.parseInt(txtQuantidadeProduto.getText()),
-                    String.valueOf(dt.format(jDataCompra.getDate())),
-                    txtAreaDescricao.getText());
+            } else {
+                int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente salvar a alteração?", "EXCLUIR", JOptionPane.YES_NO_OPTION);
+                if (resposta == JOptionPane.YES_OPTION) {
+                    novo.atualizarProduto(
+                            Integer.parseInt(txtCodigoProduto.getText()),
+                            txtNomeProduto.getText(),
+                            Integer.parseInt(txtQuantidadeProduto.getText()),
+                            String.valueOf(dt.format(jDataCompra.getDate())),
+                            txtAreaDescricao.getText());
+                } else {
+                }
             }
             limpaTela();
             carregaDadosBanco();
@@ -846,146 +839,149 @@ public class Novaview extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         valor = true;
-        
+
         btnNovo.setEnabled(false);
         btnNovo.setForeground(cinzaClaro);
-        
+
         btnEditar.setEnabled(false);
         btnEditar.setForeground(cinzaClaro);
 
         btnExcluir.setEnabled(false);
         btnExcluir.setForeground(cinzaClaro);
-        
+
         btnSalvar.setEnabled(true);
         btnSalvar.setForeground(Color.white);
-        
+
         btnCancelar.setEnabled(true);
         btnCancelar.setForeground(Color.white);
-        
-        
+
         lblCodigo.setForeground(Color.WHITE);
         txtCodigoProduto.setEnabled(true);
-        
+
         lblNome.setForeground(Color.WHITE);
         txtNomeProduto.setEnabled(true);
-        
+
         lblQuantidade.setForeground(Color.WHITE);
         txtQuantidadeProduto.setEnabled(true);
 
         lblDataCompra.setForeground(Color.WHITE);
         jDataCompra.setEnabled(true);
-        
+
         lblDescricao.setForeground(Color.WHITE);
         txtAreaDescricao.setEnabled(true);
-        
-        
+
         jTableView.clearSelection();
         jTableView.setEnabled(false);
-        
+
         txtCodigoProduto.requestFocus();        // TODO add your handling code here:
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        estadoInicialView();  
+        estadoInicialView();
         limpaTela();
         jTableView.setEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         valor = false;
-        
+
         btnNovo.setEnabled(false);
         btnNovo.setForeground(cinzaClaro);
-        
+
         btnEditar.setEnabled(false);
         btnEditar.setForeground(cinzaClaro);
 
         btnExcluir.setEnabled(false);
         btnExcluir.setForeground(cinzaClaro);
-        
+
         btnSalvar.setEnabled(true);
         btnSalvar.setForeground(Color.white);
-        
+
         btnCancelar.setEnabled(true);
         btnCancelar.setForeground(Color.white);
-        
-        
+
         lblCodigo.setForeground(Color.WHITE);
         txtCodigoProduto.setEnabled(true);
-        
+
         lblNome.setForeground(Color.WHITE);
         txtNomeProduto.setEnabled(true);
-        
+
         lblQuantidade.setForeground(Color.WHITE);
         txtQuantidadeProduto.setEnabled(true);
 
         lblDataCompra.setForeground(Color.WHITE);
         jDataCompra.setEnabled(true);
-        
+
         lblDescricao.setForeground(Color.WHITE);
         txtAreaDescricao.setEnabled(true);
-        
+
         try {
-        txtCodigoProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 0).toString());
-        txtNomeProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 1).toString());
-        txtQuantidadeProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 2).toString());
-        txtAreaDescricao.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 4).toString());
-        
-        String a = (String) jTableView.getValueAt(jTableView.getSelectedRow(), 3);
-        SimpleDateFormat nova = new SimpleDateFormat("dd/MM/yyyy");
-        Date dt = nova.parse(a);  
-        jDataCompra.setDate(dt);
-        
+            txtCodigoProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 0).toString());
+            txtNomeProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 1).toString());
+            txtQuantidadeProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 2).toString());
+            txtAreaDescricao.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 4).toString());
+
+            String a = (String) jTableView.getValueAt(jTableView.getSelectedRow(), 3);
+            SimpleDateFormat nova = new SimpleDateFormat("dd/MM/yyyy");
+            Date dt = nova.parse(a);
+            jDataCompra.setDate(dt);
+
         } catch (Exception e) {
             System.out.println("ERRO: " + e);
         }
-        
-        
+
         jTableView.setEnabled(false);
         jTableView.clearSelection();
         txtCodigoProduto.requestFocus(); // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-               // o -1 informa se a linha esta celecionada ou nao
-        if(jTableView.getSelectedRow() != -1 && jTableView.isEnabled()){
+        // o -1 informa se a linha esta celecionada ou nao
+        if (jTableView.getSelectedRow() != -1 && jTableView.isEnabled()) {
             int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "EXCLUIR", JOptionPane.YES_NO_OPTION);
-            
+
             if (resposta == JOptionPane.YES_OPTION) {
                 produtoController novo = new produtoController();
-                novo.deletar((int) jTableView.getValueAt(jTableView.getSelectedRow(),0));
+                novo.deletar((int) jTableView.getValueAt(jTableView.getSelectedRow(), 0));
                 carregaDadosBanco();
-            } 
-            else if (resposta == JOptionPane.NO_OPTION) {
-            }        
-        estadoInicialView();
+            } else if (resposta == JOptionPane.NO_OPTION) {
+            }
+            estadoInicialView();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TelaEstoque.setVisible(false);
+        TelaVendas.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstoqueActionPerformed
         TelaVendas.setVisible(false);
         TelaEstoque.setVisible(true);
     }//GEN-LAST:event_btnEstoqueActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaEstoque.setVisible(false);
-        TelaVendas.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
-    private void estadoInicialView(){
-        
+    private void jPanelControleEstoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelControleEstoqueMouseExited
+        jPanelControleEstoque.setBackground(new Color(85, 65, 118));        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelControleEstoqueMouseExited
+
+    private void jPanelControleEstoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelControleEstoqueMouseEntered
+        jPanelControleEstoque.setBackground(new Color(151, 130, 186));                // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelControleEstoqueMouseEntered
+
+    private void estadoInicialView() {
+
         btnSalvar.setEnabled(false);
         btnSalvar.setForeground(cinzaClaro);
-        
+
         btnNovo.setEnabled(true);
-        btnNovo.setForeground(Color.white);  
-    
+        btnNovo.setForeground(Color.white);
+
         btnSalvar.setEnabled(false);
         btnSalvar.setForeground(cinzaClaro);
-     
+
         btnCancelar.setEnabled(false);
         btnCancelar.setForeground(cinzaClaro);
-    
+
         btnEditar.setEnabled(false);
         btnEditar.setForeground(cinzaClaro);
 
@@ -1006,46 +1002,44 @@ public class Novaview extends javax.swing.JFrame {
 
         txtAreaDescricao.setEnabled(false);
         lblDescricao.setForeground(cinzaClaro);
-    
+
         jTableView.setEnabled(true);
     }
-   
-    private void carregaDadosBanco(){
+
+    private void carregaDadosBanco() {
         tableModel.listarProdutos();
     }
-    
-     private boolean naoCampoVazio(){
+
+    private boolean naoCampoVazio() {
         boolean campo = false;
-        if(txtCodigoProduto.getText().equals("") || txtNomeProduto.getText().equals("") || txtQuantidadeProduto.getText().equals("")){
+        if (txtCodigoProduto.getText().equals("") || txtNomeProduto.getText().equals("") || txtQuantidadeProduto.getText().equals("")) {
             campo = false;
             JOptionPane.showMessageDialog(null, "Por gentileza preencha todos os campos!");
-        }
-        else{
-            campo =  true;
+        } else {
+            campo = true;
         }
         return campo;
     }
-     
-     public boolean validaDate(){
+
+    public boolean validaDate() {
         boolean checkData = false;
-        
-        if(jDataCompra.getDate()==null){
-            JOptionPane.showMessageDialog(this, "insira uma data por gentileza!"); 
-        }   
-        else{
+
+        if (jDataCompra.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "insira uma data por gentileza!");
+        } else {
             checkData = true;
         }
         return checkData;
     }
-     
-      private void limpaTela(){
+
+    private void limpaTela() {
         txtCodigoProduto.setText("");
         txtNomeProduto.setText("");
         txtQuantidadeProduto.setText("");
         jDataCompra.setDate(null);
         txtAreaDescricao.setText("");
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1076,7 +1070,7 @@ public class Novaview extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
             }
         });
     }
@@ -1127,6 +1121,5 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JTextField txtQuantidadeProduto;
     private javax.swing.JLabel txtminimiza;
     // End of variables declaration//GEN-END:variables
-
 
 }
