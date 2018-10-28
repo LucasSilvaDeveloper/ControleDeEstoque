@@ -126,7 +126,7 @@ public class RetiradaTableModel extends AbstractTableModel {
     /**
      * Metodo que quando iniciado lista todos as retiradas da tabela
      */
-    public void listarRetiradas() {
+    public void listarProdutoVendas() {
         dados.clear();
         ProdutoConsultaDAO novo = new ProdutoConsultaDAO();
         for (Produto p : novo.BuscarRetirada()) {
@@ -134,31 +134,7 @@ public class RetiradaTableModel extends AbstractTableModel {
         }
         this.fireTableDataChanged();
     }
-
-    /**
-     * Metodo que quando iniciado lista todos os produtos da tabela
-     */
-    public void listarProdutos() {
-        dados.clear();
-        ProdutoConsultaDAO novo = new ProdutoConsultaDAO();
-        for (Produto p : novo.BuscarProdutos()) {
-            this.dados.add(p);
-        }
-        this.fireTableDataChanged();
-    }
-
-    /**
-     * Metodo para a pesquisa no banco de dados por parametro
-     *
-     * @param novo string passada como parametro
-     */
-    public void retornoPesquisaProduto(String novo) {
-        dados.clear();
-        ProdutoConsultaDAO novaPesquisa = new ProdutoConsultaDAO();
-        for (Produto t : novaPesquisa.BuscarProdutosEspecifico(novo)) {
-            this.dados.add(t);
-        }
-        this.fireTableDataChanged();
-    }
+    
+    
 
 }

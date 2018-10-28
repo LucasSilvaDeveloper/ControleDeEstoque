@@ -27,7 +27,9 @@ public class produtoController {
         novoProduto.atualizaRetiradaProduto(nomeProduto, quantidadeProduto, id);
     }
     
-    
+    public void deletarRetiraProduto(int id) {        
+        novoProduto.deletarRetiradaProduto(id);
+    }
     
     /**
      * Metodo Construtor default da Classe <b>ProdutoDAO</b><br>

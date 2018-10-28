@@ -139,6 +139,35 @@ public class ProdutoDAO {
         }
     }
 
+    
+    public void deletarRetiradaProduto(int id) {
+
+        String sql = "delete from Retirada where id_prod = ?";
+
+        PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
+        try {
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Produto excluido com sucesso!");
+
+        } catch (SQLException e) {
+            System.out.println("erro ao excluir: " + e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            conexaosqlite.desconectar();
+
+        }
+    }
+    
+    
     /**
      * Metodo para excluir um produto no banco de dados
      *
