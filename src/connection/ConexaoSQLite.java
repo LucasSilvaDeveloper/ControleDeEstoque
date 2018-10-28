@@ -45,7 +45,7 @@ public class ConexaoSQLite {
 //     * 
     public boolean conectar() {
         try {
-            String url = "jdbc:sqlite:C:/Users/carlo/Downloads/Banco.db";
+            String url = "jdbc:sqlite:c:/Banco/Banco.db";
             this.conexao = DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e);
