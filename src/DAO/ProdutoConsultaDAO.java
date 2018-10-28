@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class ProdutoConsultaDAO {
 
-    public static ConexaoSQLite nova = new ConexaoSQLite();
+    ConexaoSQLite nova = new ConexaoSQLite();
 
     /**
      * Metodo default que sempre é executada ao ser instanciada,<br>
