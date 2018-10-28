@@ -18,6 +18,17 @@ public class produtoController {
 
     ProdutoDAO novoProduto = new ProdutoDAO();
 
+    
+    public void retiraProduto(int id, String nomeProduto, int quantidadeProduto) {        
+        novoProduto.retiradaProduto(nomeProduto, quantidadeProduto, id);
+    }
+    
+    public void atualizaRetiraProduto(int id, String nomeProduto, int quantidadeProduto) {        
+        novoProduto.atualizaRetiradaProduto(nomeProduto, quantidadeProduto, id);
+    }
+    
+    
+    
     /**
      * Metodo Construtor default da Classe <b>ProdutoDAO</b><br>
      * <b>Uso</b><br>
