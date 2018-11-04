@@ -133,7 +133,7 @@ public class ProdutoTableModel extends AbstractTableModel {
     /**
      * Metodo que quando iniciado lista todos os produtos da tabela
      */
-    public void listarProdutos() {
+    public void listarProdutoEstoque() {
         dados.clear();
         ProdutoConsultaDAO novo = new ProdutoConsultaDAO();
         for (Produto p : novo.BuscarProdutos()) {
