@@ -6,25 +6,14 @@
 package View;
 
 import Controller.produtoController;
-import static DAO.ProdutoConsultaDAO.nova;
 import Model.ProdutoTableModel;
-<<<<<<< HEAD
 import Util.MaskValorMonetario;
-=======
-import Model.RetiradaTableModel;
->>>>>>> 4b98b6e7d91044ee600d91a08a3791c6657147e3
 import Util.ValidaNome;
 import Util.ValidaNumero;
 import Util.ValidaNumeroVirgula;
 import java.awt.Color;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableRowSorter;
@@ -44,11 +33,7 @@ public class Novaview extends javax.swing.JFrame {
     Color cinzaClaro = new Color(188, 188, 188);
 
     ProdutoTableModel tableModel = new ProdutoTableModel();
-    RetiradaTableModel retiradamodel = new RetiradaTableModel();
-    
-     ResultSet resultset = null;
-     Statement statement = null;
-            
+
     boolean valor = false;
 
     int x, y;
@@ -61,20 +46,12 @@ public class Novaview extends javax.swing.JFrame {
         TelaEstoque.setVisible(false);
         estadoInicialView();
         jTableView.setModel(tableModel);
-        jTableView2.setModel(retiradamodel);
         jTableView.setRowSorter(new TableRowSorter(tableModel));
-        jTableView2.setRowSorter(new TableRowSorter(retiradamodel));
         carregaDadosBanco();
         txtCodigoProduto.setDocument(new ValidaNumero());
-<<<<<<< HEAD
         txtQuantidadeProdutoLitro.setDocument(new ValidaNumero());
         txtNomeProduto.setDocument(new ValidaNome());
         jFTValorLitro.setDocument(new ValidaNumeroVirgula());
-=======
-        txtQuantidadeProduto.setDocument(new ValidaNumero());
-        txtNomeProduto.setDocument(new ValidaNome()); 
-        
->>>>>>> 4b98b6e7d91044ee600d91a08a3791c6657147e3
     }
 
     /**
@@ -132,11 +109,6 @@ public class Novaview extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTableView2 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -164,12 +136,12 @@ public class Novaview extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/img_x_branco.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabel1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,11 +255,11 @@ public class Novaview extends javax.swing.JFrame {
         jPanelEmBreve.setLayout(jPanelEmBreveLayout);
         jPanelEmBreveLayout.setHorizontalGroup(
             jPanelEmBreveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelEmBreveLayout.setVerticalGroup(
             jPanelEmBreveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -304,11 +276,7 @@ public class Novaview extends javax.swing.JFrame {
                 .addComponent(jPanelControleEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelEmBreve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
                 .addContainerGap(523, Short.MAX_VALUE))
-=======
-                .addContainerGap(418, Short.MAX_VALUE))
->>>>>>> 4b98b6e7d91044ee600d91a08a3791c6657147e3
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 620));
@@ -562,9 +530,13 @@ public class Novaview extends javax.swing.JFrame {
         jLabel5.setText("Retorno de Produtos");
         jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         jLabel6.setText("Selecionar Produto:");
 
         jLabel7.setText("Quantidade:");
+
+        jTextField1.setText("jTextField1");
 
         jLabel8.setText("Selecionar Produto:");
 
@@ -574,43 +546,6 @@ public class Novaview extends javax.swing.JFrame {
 
         jLabel9.setText("Quantidade:");
 
-        jButton3.setText("Saida");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setText("Retorno");
-
-        jTableView2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jTableView2.setFocusable(false);
-        jTableView2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTableView2FocusLost(evt);
-            }
-        });
-        jTableView2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableView2MouseClicked(evt);
-            }
-        });
-        jScrollPane5.setViewportView(jTableView2);
-
-        jButton5.setText("Excluir");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout TelaVendasLayout = new javax.swing.GroupLayout(TelaVendas);
         TelaVendas.setLayout(TelaVendasLayout);
         TelaVendasLayout.setHorizontalGroup(
@@ -618,35 +553,21 @@ public class Novaview extends javax.swing.JFrame {
             .addGroup(TelaVendasLayout.createSequentialGroup()
                 .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TelaVendasLayout.createSequentialGroup()
-                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel3))
+                    .addGroup(TelaVendasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(TelaVendasLayout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addComponent(jLabel3))
+                                .addGap(13, 13, 13)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(TelaVendasLayout.createSequentialGroup()
-                                .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(TelaVendasLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6)))
-                                    .addGroup(TelaVendasLayout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addComponent(jButton5)))
-                                .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(TelaVendasLayout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(TelaVendasLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaVendasLayout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jButton3))
-                                            .addComponent(jTextField1))))))
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaVendasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1)))))
+                .addGap(28, 28, 28)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TelaVendasLayout.createSequentialGroup()
@@ -655,18 +576,15 @@ public class Novaview extends javax.swing.JFrame {
                     .addGroup(TelaVendasLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(TelaVendasLayout.createSequentialGroup()
-                                .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
-                                .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(TelaVendasLayout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(TelaVendasLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                .addGap(13, 13, 13)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(TelaVendasLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         TelaVendasLayout.setVerticalGroup(
             TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -699,15 +617,7 @@ public class Novaview extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(32, 32, 32)
-                        .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButton3)
-                                .addComponent(jButton5))
-                            .addComponent(jButton4))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -970,7 +880,7 @@ public class Novaview extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // o -1 informa se a linha esta selecionada ou nao
+        // o -1 informa se a linha esta celecionada ou nao
         if (jTableView.getSelectedRow() != -1 && jTableView.isEnabled()) {
             int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir?", "EXCLUIR", JOptionPane.YES_NO_OPTION);
 
@@ -1002,56 +912,7 @@ public class Novaview extends javax.swing.JFrame {
         jPanelControleEstoque.setBackground(new Color(151, 130, 186));                // TODO add your handling code here:
     }//GEN-LAST:event_jPanelControleEstoqueMouseEntered
 
-    private void jTableView2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTableView2FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableView2FocusLost
-
-    private void jTableView2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableView2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableView2MouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-          // TODO add your handling code here:
-          produtoController retirada = new produtoController(); 
-            int cod =0;
-            boolean ret=false;
-            for(int i=0;i<jTableView.getRowCount();i++){
-                if(jTableView.getValueAt(i, 1).toString().equals(jComboBox1.getSelectedItem().toString())){
-                cod = Integer.parseInt(jTableView.getValueAt(i, 0).toString());
-            }  
-            }
-            for(int i=0;i<jTableView2.getRowCount();i++){
-                if(jTableView2.getValueAt(i, 0).toString().equals(String.valueOf(cod))){ 
-                   
-                 for(int j=0;j<jTableView.getRowCount();j++){
-                        if(jTableView.getValueAt(j, 0).toString().equals(String.valueOf(cod))){
-                            if(Integer.parseInt(jTableView2.getValueAt(i, 2).toString())+Integer.parseInt(jTextField1.getText())>Integer.parseInt(jTableView.getValueAt(j, 2).toString())){
-                              JOptionPane.showMessageDialog(null,"Valor ultrapassou o limite do estoque.");
-                              return;
-                            }  
-                        }                        
-                    }
-                 ret=true;
-                }
-            }
-            if(ret){
-            retirada.atualizaRetiraProduto(cod, jComboBox1.getSelectedItem().toString(),Integer.parseInt(jTextField1.getText()));
-            carregaDadosBanco();  
-            return;
-            }
-            retirada.retiraProduto(cod, jComboBox1.getSelectedItem().toString(),Integer.parseInt(jTextField1.getText()));            
-            carregaDadosBanco();             
-            
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        produtoController novo = new produtoController();
-        novo.deletarRetiraProduto((int)jTableView2.getValueAt(jTableView2.getSelectedRow(), 0));
-        carregaDadosBanco();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void estadoInicialView(){
+    private void estadoInicialView() {
 
         btnSalvar.setEnabled(false);
         btnSalvar.setForeground(cinzaClaro);
@@ -1095,12 +956,7 @@ public class Novaview extends javax.swing.JFrame {
     }
 
     private void carregaDadosBanco() {
-        tableModel.listarProdutoEstoque();
-        retiradamodel.listarProdutoVendas();
-        jComboBox1.removeAllItems();
-        for(int i=0;i<jTableView.getRowCount();i++){
-         jComboBox1.addItem(jTableView.getValueAt(i, 1).toString());   
-        }
+        tableModel.listarProdutos();
     }
 
     private boolean naoCampoVazio() {
@@ -1192,9 +1048,6 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDataCompra;
@@ -1216,10 +1069,8 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelEmBreve;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableView;
-    private javax.swing.JTable jTableView2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCodigo;
