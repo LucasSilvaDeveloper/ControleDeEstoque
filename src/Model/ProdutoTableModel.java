@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
 public class ProdutoTableModel extends AbstractTableModel {
 
     private List<Produto> dados = new ArrayList<Produto>();
-    private String[] colunas = {"ID", "NOME", "QTD", "DATA COMPRA", "DESCRIÇÃO"};
+    private String[] colunas = {"ID", "NOME", "QTD", "VALOR P/ LITRO", "DATA COMPRA", "DESCRIÇÃO"};
 
     //nao permite a edição dos valores da tabela
     /**
@@ -84,8 +84,10 @@ public class ProdutoTableModel extends AbstractTableModel {
             case 2:
                 return dados.get(linha).getQuantidadeProduto();
             case 3:
-                return dados.get(linha).getDataCompra();
+                return dados.get(linha).getValorPorLitro();
             case 4:
+                return dados.get(linha).getDataCompra();
+            case 5:
                 return dados.get(linha).getDescricao();
         }
         return null;
@@ -108,6 +110,8 @@ public class ProdutoTableModel extends AbstractTableModel {
             case 2:
                 return Integer.class;
             case 3:
+                return Integer.class;
+            case 4:
                 return Integer.class;
             default:
                 return String.class;

@@ -44,16 +44,18 @@ public class ProdutoDAO {
         String sql = "insert into Produto("
                 + "nome_produto,"
                 + "quantidade,"
+                + "valorporlitro,"
                 + "data_compra,"
                 + "descricao"
-                + ") values(?,?,?,?);";
+                + ") values(?,?,?,?,?);";
 
         PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
         try {
             preparedStatement.setString(1, p.getNomeProduto());
             preparedStatement.setInt(2, p.getQuantidadeProduto());
-            preparedStatement.setString(3, p.getDataCompra());
-            preparedStatement.setString(4, p.getDescricao());
+            preparedStatement.setFloat(3, p.getValorPorLitro());
+            preparedStatement.setString(4, p.getDataCompra());
+            preparedStatement.setString(5, p.getDescricao());
 
             preparedStatement.executeUpdate();
 

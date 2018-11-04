@@ -7,8 +7,10 @@ package View;
 
 import Controller.produtoController;
 import Model.ProdutoTableModel;
+import Util.MaskValorMonetario;
 import Util.ValidaNome;
 import Util.ValidaNumero;
+import Util.ValidaNumeroVirgula;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,8 +49,9 @@ public class Novaview extends javax.swing.JFrame {
         jTableView.setRowSorter(new TableRowSorter(tableModel));
         carregaDadosBanco();
         txtCodigoProduto.setDocument(new ValidaNumero());
-        txtQuantidadeProduto.setDocument(new ValidaNumero());
+        txtQuantidadeProdutoLitro.setDocument(new ValidaNumero());
         txtNomeProduto.setDocument(new ValidaNome());
+        jFTValorLitro.setDocument(new ValidaNumeroVirgula());
     }
 
     /**
@@ -79,12 +82,11 @@ public class Novaview extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lblDescricao = new javax.swing.JLabel();
         lblDataCompra = new javax.swing.JLabel();
-        lblQuantidade = new javax.swing.JLabel();
+        lblValorLitro = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
         txtCodigoProduto = new javax.swing.JTextField();
         txtNomeProduto = new javax.swing.JTextField();
-        txtQuantidadeProduto = new javax.swing.JTextField();
         jDataCompra = new com.toedter.calendar.JDateChooser();
         btnExcluir = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
@@ -92,6 +94,9 @@ public class Novaview extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        lblQuantidadeLitro = new javax.swing.JLabel();
+        txtQuantidadeProdutoLitro = new javax.swing.JTextField();
+        jFTValorLitro = new javax.swing.JFormattedTextField();
         TelaVendas = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -271,15 +276,16 @@ public class Novaview extends javax.swing.JFrame {
                 .addComponent(jPanelControleEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelEmBreve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(423, Short.MAX_VALUE))
+                .addContainerGap(523, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 520));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 620));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new java.awt.CardLayout());
 
         TelaEstoque.setOpaque(false);
+        TelaEstoque.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -290,6 +296,7 @@ public class Novaview extends javax.swing.JFrame {
             }
         ));
         jTableView.setFocusable(false);
+        jTableView.setOpaque(false);
         jTableView.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTableViewFocusLost(evt);
@@ -301,6 +308,8 @@ public class Novaview extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(jTableView);
+
+        TelaEstoque.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 650, 190));
 
         txtPesquisarProduto.setBackground(new java.awt.Color(153, 153, 153));
         txtPesquisarProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -323,34 +332,43 @@ public class Novaview extends javax.swing.JFrame {
                 txtPesquisarProdutoKeyReleased(evt);
             }
         });
+        TelaEstoque.add(txtPesquisarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 255, 140, -1));
 
         txtAreaDescricao.setColumns(20);
         txtAreaDescricao.setRows(3);
         jScrollPane2.setViewportView(txtAreaDescricao);
 
+        TelaEstoque.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 360, -1));
+
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pesquisar por nome:");
+        TelaEstoque.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
 
         lblDescricao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblDescricao.setForeground(new java.awt.Color(255, 255, 255));
         lblDescricao.setText("Descrição:");
+        TelaEstoque.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 160, -1, -1));
 
         lblDataCompra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblDataCompra.setForeground(new java.awt.Color(255, 255, 255));
         lblDataCompra.setText("Data da Compra:");
+        TelaEstoque.add(lblDataCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 130, -1, -1));
 
-        lblQuantidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblQuantidade.setForeground(new java.awt.Color(255, 255, 255));
-        lblQuantidade.setText("Quantidade:");
+        lblValorLitro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblValorLitro.setForeground(new java.awt.Color(255, 255, 255));
+        lblValorLitro.setText("Valor p/Litro:");
+        TelaEstoque.add(lblValorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 100, -1, -1));
 
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome:");
+        TelaEstoque.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 40, -1, -1));
 
         lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Codigo:");
+        TelaEstoque.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 10, -1, -1));
 
         txtCodigoProduto.setBackground(new java.awt.Color(153, 153, 153));
         txtCodigoProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -363,26 +381,21 @@ public class Novaview extends javax.swing.JFrame {
                 txtCodigoProdutoFocusGained(evt);
             }
         });
+        TelaEstoque.add(txtCodigoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 5, 180, -1));
 
         txtNomeProduto.setBackground(new java.awt.Color(153, 153, 153));
         txtNomeProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         txtNomeProduto.setForeground(new java.awt.Color(255, 255, 255));
         txtNomeProduto.setToolTipText("Nome do produto");
         txtNomeProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtNomeProduto.setNextFocusableComponent(txtQuantidadeProduto);
+        txtNomeProduto.setNextFocusableComponent(txtQuantidadeProdutoLitro);
         txtNomeProduto.setOpaque(false);
-
-        txtQuantidadeProduto.setBackground(new java.awt.Color(153, 153, 153));
-        txtQuantidadeProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        txtQuantidadeProduto.setForeground(new java.awt.Color(255, 255, 255));
-        txtQuantidadeProduto.setToolTipText("Nome do produto");
-        txtQuantidadeProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtQuantidadeProduto.setNextFocusableComponent(jDataCompra);
-        txtQuantidadeProduto.setOpaque(false);
+        TelaEstoque.add(txtNomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 35, 180, -1));
 
         jDataCompra.setBackground(new java.awt.Color(255, 255, 255));
         jDataCompra.setMaxSelectableDate(new java.util.Date(253370775699000L));
         jDataCompra.setOpaque(false);
+        TelaEstoque.add(jDataCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 125, 140, -1));
 
         btnExcluir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
@@ -398,6 +411,7 @@ public class Novaview extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
+        TelaEstoque.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 170, 120, 30));
 
         btnEditar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(255, 255, 255));
@@ -414,6 +428,7 @@ public class Novaview extends javax.swing.JFrame {
                 btnEditarActionPerformed(evt);
             }
         });
+        TelaEstoque.add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 130, 120, 30));
 
         btnCancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
@@ -430,6 +445,7 @@ public class Novaview extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
+        TelaEstoque.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 90, 120, 30));
 
         btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
         btnSalvar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -448,6 +464,7 @@ public class Novaview extends javax.swing.JFrame {
                 btnSalvarActionPerformed(evt);
             }
         });
+        TelaEstoque.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 50, 120, 30));
 
         btnNovo.setBackground(new java.awt.Color(255, 255, 255));
         btnNovo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -466,115 +483,32 @@ public class Novaview extends javax.swing.JFrame {
                 btnNovoActionPerformed(evt);
             }
         });
+        TelaEstoque.add(btnNovo, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 10, 120, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon_question.png"))); // NOI18N
         jLabel4.setToolTipText("<html><h3>Ola!</h3><h4>Se estiver com alguma duvida com<br> os botoes, permanessa com o mouse sobre ele<br> que ele lhe dara uma breve explicação de como usalo!");
+        TelaEstoque.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 13, -1, -1));
 
-        javax.swing.GroupLayout TelaEstoqueLayout = new javax.swing.GroupLayout(TelaEstoque);
-        TelaEstoque.setLayout(TelaEstoqueLayout);
-        TelaEstoqueLayout.setHorizontalGroup(
-            TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEstoqueLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEstoqueLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                        .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(5, 5, 5)
-                                .addComponent(txtPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addComponent(lblQuantidade)
-                                .addGap(45, 45, 45)
-                                .addComponent(txtQuantidadeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addComponent(lblDataCompra)
-                                .addGap(14, 14, 14)
-                                .addComponent(jDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblDescricao)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                        .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addComponent(lblCodigo)
-                                .addGap(76, 76, 76)
-                                .addComponent(txtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addComponent(lblNome)
-                                .addGap(86, 86, 86)
-                                .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(31, 31, 31))))
-        );
-        TelaEstoqueLayout.setVerticalGroup(
-            TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaEstoqueLayout.createSequentialGroup()
-                .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                        .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lblCodigo))
-                                    .addComponent(txtCodigoProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3)
-                                .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(lblNome))
-                                    .addComponent(txtNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4)))
-                        .addGap(3, 3, 3)
-                        .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lblQuantidade))
-                            .addComponent(txtQuantidadeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(lblDataCompra))
-                            .addComponent(jDataCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addComponent(lblDescricao)
-                        .addGap(3, 3, 3)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
-                        .addGroup(TelaEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel2))
-                            .addComponent(txtPesquisarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(TelaEstoqueLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        lblQuantidadeLitro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblQuantidadeLitro.setForeground(new java.awt.Color(255, 255, 255));
+        lblQuantidadeLitro.setText("qtd em litros:");
+        TelaEstoque.add(lblQuantidadeLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 70, -1, -1));
+
+        txtQuantidadeProdutoLitro.setBackground(new java.awt.Color(153, 153, 153));
+        txtQuantidadeProdutoLitro.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        txtQuantidadeProdutoLitro.setForeground(new java.awt.Color(255, 255, 255));
+        txtQuantidadeProdutoLitro.setToolTipText("Nome do produto");
+        txtQuantidadeProdutoLitro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txtQuantidadeProdutoLitro.setNextFocusableComponent(jFTValorLitro);
+        txtQuantidadeProdutoLitro.setOpaque(false);
+        TelaEstoque.add(txtQuantidadeProdutoLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 65, 180, -1));
+
+        jFTValorLitro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        jFTValorLitro.setForeground(new java.awt.Color(255, 255, 255));
+        jFTValorLitro.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jFTValorLitro.setNextFocusableComponent(jDataCompra);
+        jFTValorLitro.setOpaque(false);
+        TelaEstoque.add(jFTValorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 95, 180, -1));
 
         jPanel4.add(TelaEstoque, "card2");
 
@@ -699,7 +633,7 @@ public class Novaview extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -804,7 +738,7 @@ public class Novaview extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPesquisarProdutoMouseClicked
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if (naoCampoVazio() && validaDate()) {
+        if (naoCampoVazio() && validaDate() && validaValor()) {
 
             SimpleDateFormat dt = new SimpleDateFormat("dd/MM/YYYY");
 
@@ -814,7 +748,8 @@ public class Novaview extends javax.swing.JFrame {
                 novo.novoProduto(
                         Integer.parseInt(txtCodigoProduto.getText()),
                         txtNomeProduto.getText(),
-                        Integer.parseInt(txtQuantidadeProduto.getText()),
+                        Integer.parseInt(txtQuantidadeProdutoLitro.getText()),
+                        Float.parseFloat(jFTValorLitro.getText().replace(",", ".")),
                         String.valueOf(dt.format(jDataCompra.getDate())),
                         txtAreaDescricao.getText());
 
@@ -824,7 +759,8 @@ public class Novaview extends javax.swing.JFrame {
                     novo.atualizarProduto(
                             Integer.parseInt(txtCodigoProduto.getText()),
                             txtNomeProduto.getText(),
-                            Integer.parseInt(txtQuantidadeProduto.getText()),
+                            Integer.parseInt(txtQuantidadeProdutoLitro.getText()),
+                            Float.parseFloat(jFTValorLitro.getText().replace(",", ".")),
                             String.valueOf(dt.format(jDataCompra.getDate())),
                             txtAreaDescricao.getText());
                 } else {
@@ -855,20 +791,23 @@ public class Novaview extends javax.swing.JFrame {
         btnCancelar.setEnabled(true);
         btnCancelar.setForeground(Color.white);
 
-        lblCodigo.setForeground(Color.WHITE);
         txtCodigoProduto.setEnabled(true);
+        lblCodigo.setForeground(Color.WHITE);
 
-        lblNome.setForeground(Color.WHITE);
         txtNomeProduto.setEnabled(true);
+        lblNome.setForeground(Color.WHITE);
 
-        lblQuantidade.setForeground(Color.WHITE);
-        txtQuantidadeProduto.setEnabled(true);
+        jFTValorLitro.setEnabled(true);
+        lblValorLitro.setForeground(Color.WHITE);
 
-        lblDataCompra.setForeground(Color.WHITE);
+        txtQuantidadeProdutoLitro.setEnabled(true);
+        lblQuantidadeLitro.setForeground(Color.white);
+        
         jDataCompra.setEnabled(true);
+        lblDataCompra.setForeground(Color.WHITE);
 
-        lblDescricao.setForeground(Color.WHITE);
         txtAreaDescricao.setEnabled(true);
+        lblDescricao.setForeground(Color.WHITE);
 
         jTableView.clearSelection();
         jTableView.setEnabled(false);
@@ -900,28 +839,33 @@ public class Novaview extends javax.swing.JFrame {
         btnCancelar.setEnabled(true);
         btnCancelar.setForeground(Color.white);
 
-        lblCodigo.setForeground(Color.WHITE);
         txtCodigoProduto.setEnabled(true);
+        lblCodigo.setForeground(Color.WHITE);
 
-        lblNome.setForeground(Color.WHITE);
         txtNomeProduto.setEnabled(true);
+        lblNome.setForeground(Color.WHITE);
 
-        lblQuantidade.setForeground(Color.WHITE);
-        txtQuantidadeProduto.setEnabled(true);
+        jFTValorLitro.setEnabled(true);
+        lblValorLitro.setForeground(Color.WHITE);
 
-        lblDataCompra.setForeground(Color.WHITE);
         jDataCompra.setEnabled(true);
+        lblDataCompra.setForeground(Color.WHITE);
 
-        lblDescricao.setForeground(Color.WHITE);
+        txtQuantidadeProdutoLitro.setEnabled(true);
+        lblQuantidadeLitro.setForeground(Color.white);
+        
         txtAreaDescricao.setEnabled(true);
+        lblDescricao.setForeground(Color.WHITE);
 
+        
         try {
             txtCodigoProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 0).toString());
             txtNomeProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 1).toString());
-            txtQuantidadeProduto.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 2).toString());
-            txtAreaDescricao.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 4).toString());
-
-            String a = (String) jTableView.getValueAt(jTableView.getSelectedRow(), 3);
+            txtQuantidadeProdutoLitro.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 2).toString());
+            txtAreaDescricao.setText(jTableView.getValueAt(jTableView.getSelectedRow(), 5).toString());
+            jFTValorLitro.setText(jTableView.getValueAt(jTableView.getSelectedColumn(), 3).toString());
+            
+            String a = (String) jTableView.getValueAt(jTableView.getSelectedRow(), 4);
             SimpleDateFormat nova = new SimpleDateFormat("dd/MM/yyyy");
             Date dt = nova.parse(a);
             jDataCompra.setDate(dt);
@@ -994,8 +938,8 @@ public class Novaview extends javax.swing.JFrame {
         txtNomeProduto.setEnabled(false);
         lblNome.setForeground(cinzaClaro);
 
-        txtQuantidadeProduto.setEnabled(false);
-        lblQuantidade.setForeground(cinzaClaro);
+        jFTValorLitro.setEnabled(false);
+        lblValorLitro.setForeground(cinzaClaro);
 
         jDataCompra.setEnabled(false);
         lblDataCompra.setForeground(cinzaClaro);
@@ -1003,6 +947,11 @@ public class Novaview extends javax.swing.JFrame {
         txtAreaDescricao.setEnabled(false);
         lblDescricao.setForeground(cinzaClaro);
 
+        txtQuantidadeProdutoLitro.setEnabled(false);
+        lblQuantidadeLitro.setForeground(cinzaClaro);
+        
+        
+        
         jTableView.setEnabled(true);
     }
 
@@ -1012,7 +961,7 @@ public class Novaview extends javax.swing.JFrame {
 
     private boolean naoCampoVazio() {
         boolean campo = false;
-        if (txtCodigoProduto.getText().equals("") || txtNomeProduto.getText().equals("") || txtQuantidadeProduto.getText().equals("")) {
+        if (txtCodigoProduto.getText().equals("") || txtNomeProduto.getText().equals("") || txtQuantidadeProdutoLitro.getText().equals("")) {
             campo = false;
             JOptionPane.showMessageDialog(null, "Por gentileza preencha todos os campos!");
         } else {
@@ -1032,14 +981,28 @@ public class Novaview extends javax.swing.JFrame {
         return checkData;
     }
 
+    public boolean validaValor(){
+        boolean flag = false;
+        if(jFTValorLitro.equals(",")){
+            if(jFTValorLitro.getText().indexOf(",,")> -1) {
+                System.out.println("duas virgulas");
+                
+            }
+            
+        }
+        else{flag = false;}
+        return flag;
+    }
+    
     private void limpaTela() {
         txtCodigoProduto.setText("");
         txtNomeProduto.setText("");
-        txtQuantidadeProduto.setText("");
+        txtQuantidadeProdutoLitro.setText("");
         jDataCompra.setDate(null);
+        jFTValorLitro.setValue("");
         txtAreaDescricao.setText("");
     }
-
+    
     /**
      * @param args the command line arguments
      */
@@ -1088,6 +1051,7 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDataCompra;
+    private javax.swing.JFormattedTextField jFTValorLitro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1113,12 +1077,13 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JLabel lblDataCompra;
     private javax.swing.JLabel lblDescricao;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblQuantidade;
+    private javax.swing.JLabel lblQuantidadeLitro;
+    private javax.swing.JLabel lblValorLitro;
     private javax.swing.JTextArea txtAreaDescricao;
     private javax.swing.JTextField txtCodigoProduto;
     private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtPesquisarProduto;
-    private javax.swing.JTextField txtQuantidadeProduto;
+    private javax.swing.JTextField txtQuantidadeProdutoLitro;
     private javax.swing.JLabel txtminimiza;
     // End of variables declaration//GEN-END:variables
 

@@ -36,11 +36,12 @@ public class produtoController {
      * @param id codigo do produto
      * @param nomeProduto nome do produto
      * @param quantidadeProduto quantidade em litros do produto
+     * @param valorPorLitro preço do produto por litro
      * @param dataCompra data da compra
      * @param descricao descrição do produto caso haja necessidade
      */
-    public void novoProduto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
-        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, dataCompra, descricao);
+    public void novoProduto(int id, String nomeProduto, int quantidadeProduto,float valorPorLitro,String dataCompra, String descricao) {
+        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, valorPorLitro, dataCompra, descricao);
         novoProduto.gravaProduto(novo);
     }
 
@@ -54,11 +55,12 @@ public class produtoController {
      * @param id novo id
      * @param nomeProduto novo nome
      * @param quantidadeProduto nova quantidade do produto
+     * @param valorPorLitro novo preço do produto por litro
      * @param dataCompra nova data da compra
      * @param descricao nova descrição
      */
-    public void atualizarProduto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
-        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, dataCompra, descricao);
+    public void atualizarProduto(int id, String nomeProduto, int quantidadeProduto, float valorPorLitro, String dataCompra, String descricao) {
+        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, valorPorLitro, dataCompra, descricao);
         novoProduto.atualizarProduto(novo);
     }
 
