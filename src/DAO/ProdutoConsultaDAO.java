@@ -46,6 +46,46 @@ public class ProdutoConsultaDAO {
      *
      * @return lista de obetos Produto
      */
+    public List<Produto> BuscarRetirada() {
+        ResultSet resultset = null;
+        Statement statement = null;
+
+        statement = nova.criarStatement();
+        List<Produto> produtos = new ArrayList<Produto>();
+
+        try {
+
+            String query = "select * from Retirada;";
+            resultset = statement.executeQuery(query);
+
+            while (resultset.next()) {
+
+                Produto novo = new Produto();
+
+                novo.setId(resultset.getInt("id_prod"));
+                novo.setNomeProduto(resultset.getString("nome_produto"));
+                novo.setQuantidadeProduto(resultset.getInt("quantidade"));
+                produtos.add(novo);
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro! " + e);
+        } finally {
+            try {
+
+                resultset.close();
+                statement.close();
+                nova.desconectar();
+
+            } catch (SQLException e) {
+                System.out.println("Erro!: " + e);
+            }
+        }
+        return produtos;
+    }
+    
+    
+    
     public List<Produto> BuscarProdutos() {
         ResultSet resultset = null;
         Statement statement = null;
@@ -65,7 +105,6 @@ public class ProdutoConsultaDAO {
                 novo.setId(resultset.getInt("id"));
                 novo.setNomeProduto(resultset.getString("nome_produto"));
                 novo.setQuantidadeProduto(resultset.getInt("quantidade"));
-                novo.setValorPorLitro(resultset.getFloat("valorporlitro"));
                 novo.setDataCompra(resultset.getString("data_Compra"));
                 novo.setDescricao(resultset.getString("descricao"));
                 produtos.add(novo);
@@ -114,7 +153,6 @@ public class ProdutoConsultaDAO {
                 novo.setId(resultset.getInt("id"));
                 novo.setNomeProduto(resultset.getString("nome_produto"));
                 novo.setQuantidadeProduto(resultset.getInt("quantidade"));
-                novo.setValorPorLitro(resultset.getFloat("valorporlitro"));
                 novo.setDataCompra(resultset.getString("data_Compra"));
                 novo.setDescricao(resultset.getString("descricao"));
                 produtos.add(novo);

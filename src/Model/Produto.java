@@ -17,15 +17,6 @@ public class Produto {
     private int id;
     private String nomeProduto;
     private int quantidadeProduto;
-    private float ValorPorLitro;
-
-    public float getValorPorLitro() {
-        return ValorPorLitro;
-    }
-
-    public void setValorPorLitro(float ValorPorLitro) {
-        this.ValorPorLitro = ValorPorLitro;
-    }
     private String dataCompra;
     private String descricao;
 
@@ -50,11 +41,10 @@ public class Produto {
      * @param descricao alguma informação relevente do Produto da qual nao seja
      * o proprio nome
      */
-    public Produto(int id, String nomeProduto, int quantidadeProduto, float valorPorLitro , String dataCompra, String descricao) {
+    public Produto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
         setId(id);
         setNomeProduto(nomeProduto);
         setQuantidadeProduto(quantidadeProduto);
-        setValorPorLitro(valorPorLitro);
         setDataCompra(dataCompra);
         setDescricao(descricao);
     }

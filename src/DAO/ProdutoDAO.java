@@ -30,6 +30,71 @@ public class ProdutoDAO {
         conexaosqlite.conectar();
     }
 
+    public void atualizaRetiradaProduto(String nome, int quant, int id) {
+
+        String sql = "update Retirada set quantidade = quantidade + ? where id_prod=?;";
+
+        PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
+        try {
+            preparedStatement.setInt(1, quant);
+            preparedStatement.setInt(2, id);
+
+            preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Produto Salvo com sucesso!");
+
+        } catch (SQLException e) {
+            System.out.println("erro ao salvar: " + e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            conexaosqlite.desconectar();
+
+        }
+    }
+    
+    
+    
+    public void retiradaProduto(String nome, int quant, int id) {
+
+        String sql = "insert into Retirada("
+                + "nome_produto,"
+                + "quantidade,"
+                + "id_prod"
+                + ") values(?,?,?);";
+
+        PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
+        try {
+            preparedStatement.setString(1, nome);
+            preparedStatement.setInt(2, quant);
+            preparedStatement.setInt(3, id);
+
+            preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Produto Salvo com sucesso!");
+
+        } catch (SQLException e) {
+            System.out.println("erro ao salvar: " + e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            conexaosqlite.desconectar();
+
+        }
+    }
+    
+    
+    
     /**
      * Esse metodo é da classe <b>ProdutoDAO</b> que recebe como parametro<br>
      * <b>Objeto Produto</b><br>
@@ -44,18 +109,16 @@ public class ProdutoDAO {
         String sql = "insert into Produto("
                 + "nome_produto,"
                 + "quantidade,"
-                + "valorporlitro,"
                 + "data_compra,"
                 + "descricao"
-                + ") values(?,?,?,?,?);";
+                + ") values(?,?,?,?);";
 
         PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
         try {
             preparedStatement.setString(1, p.getNomeProduto());
             preparedStatement.setInt(2, p.getQuantidadeProduto());
-            preparedStatement.setFloat(3, p.getValorPorLitro());
-            preparedStatement.setString(4, p.getDataCompra());
-            preparedStatement.setString(5, p.getDescricao());
+            preparedStatement.setString(3, p.getDataCompra());
+            preparedStatement.setString(4, p.getDescricao());
 
             preparedStatement.executeUpdate();
 
@@ -76,6 +139,35 @@ public class ProdutoDAO {
         }
     }
 
+    
+    public void deletarRetiradaProduto(int id) {
+
+        String sql = "delete from Retirada where id_prod = ?";
+
+        PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
+        try {
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Produto excluido com sucesso!");
+
+        } catch (SQLException e) {
+            System.out.println("erro ao excluir: " + e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            conexaosqlite.desconectar();
+
+        }
+    }
+    
+    
     /**
      * Metodo para excluir um produto no banco de dados
      *
