@@ -70,8 +70,8 @@ public class produtoController {
      * @param dataCompra nova data da compra
      * @param descricao nova descrição
      */
-    public void atualizarProduto(String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
-        Produto novo = new Produto(nomeProduto, quantidadeProduto, valordecompra, valordevenda, nomeProduto, nomeProduto);
+    public void atualizarProduto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
+        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, dataCompra, descricao);
         novoProduto.atualizarProduto(novo);
     }
 

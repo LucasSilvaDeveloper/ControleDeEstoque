@@ -68,6 +68,16 @@ public class Produto {
         setDescricao(descricao);
     }
 
+    public Produto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
+        setId(id);
+        setNomeProduto(nomeProduto);
+        setQuantidadeProduto(quantidadeProduto);
+        setDataCompra(dataCompra);
+        setDescricao(descricao);
+    }
+    
+    
+    
     /**
      *
      * @return int codigo do produto

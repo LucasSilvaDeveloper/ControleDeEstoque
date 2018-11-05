@@ -216,8 +216,6 @@ public class ProdutoDAO {
         String sql = "update Produto "
                 + "set nome_produto = ?,"
                 + "quantidade = ?,"
-                + "valordecompra = ?,"
-                + "valordevenda = ?,"
                 + "data_compra = ?,"
                 + "descricao = ?"
                 + "where id = ?;";
@@ -226,11 +224,9 @@ public class ProdutoDAO {
         try {
             preparedStatement.setString(1, p.getNomeProduto());
             preparedStatement.setInt(2, p.getQuantidadeProduto());
-            preparedStatement.setFloat(3, p.getValordecompra());
-            preparedStatement.setFloat(4, p.getValordevenda());
-            preparedStatement.setString(5, p.getDataCompra());
-            preparedStatement.setString(6, p.getDescricao());
-            preparedStatement.setInt(7, p.getId());
+            preparedStatement.setString(3, p.getDataCompra());
+            preparedStatement.setString(4, p.getDescricao());
+            preparedStatement.setInt(5, p.getId());
 
             int resultado = preparedStatement.executeUpdate();
 //            String a = resultado == 1?"deu certo":"nao deu";
