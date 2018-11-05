@@ -37,7 +37,8 @@ public class ApresentacaoView extends javax.swing.JFrame {
                             if (conectar == false) {
                                 i = 100;
                                 JOptionPane.showMessageDialog(
-                                        rootPane, "Erro ao conectar ao banco de dados, por favor entrar em contato com o suporte!\n email@");
+                                        rootPane, "Erro ao conectar ao banco de dados, por favor entrar em contato com o suporte!"
+                                                + "\n LucasSilva_Developer@hotmail.com");
                                 System.exit(0);
                             }
                         }
