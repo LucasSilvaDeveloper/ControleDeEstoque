@@ -56,7 +56,6 @@ public class Novaview extends javax.swing.JFrame {
         jTableView.setRowSorter(new TableRowSorter(tableModel));
         jTableView2.setRowSorter(new TableRowSorter(retiradamodel));
         carregaDadosBanco();
-        txtCodigoProduto.setDocument(new ValidaNumero());
         txtQuantidadeProduto.setDocument(new ValidaNumero());
         txtNomeProduto.setDocument(new ValidaNome()); 
         txtValorCompraPorLitro.setDocument(new ValidaNumeroVirgula());
@@ -95,8 +94,6 @@ public class Novaview extends javax.swing.JFrame {
         lblDataCompra = new javax.swing.JLabel();
         lblQuantidade = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
-        lblCodigo = new javax.swing.JLabel();
-        txtCodigoProduto = new javax.swing.JTextField();
         txtNomeProduto = new javax.swing.JTextField();
         txtQuantidadeProduto = new javax.swing.JTextField();
         jDataCompra = new com.toedter.calendar.JDateChooser();
@@ -286,10 +283,10 @@ public class Novaview extends javax.swing.JFrame {
                 .addComponent(jPanelControleEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelEmBreve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(493, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 260, 580));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 590));
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
         jPanel4.setLayout(new java.awt.CardLayout());
@@ -318,7 +315,7 @@ public class Novaview extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTableView);
 
-        TelaEstoque.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 810, 240));
+        TelaEstoque.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 810, 290));
 
         txtPesquisarProduto.setBackground(new java.awt.Color(153, 153, 153));
         txtPesquisarProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -341,7 +338,7 @@ public class Novaview extends javax.swing.JFrame {
                 txtPesquisarProdutoKeyReleased(evt);
             }
         });
-        TelaEstoque.add(txtPesquisarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 295, 140, -1));
+        TelaEstoque.add(txtPesquisarProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 265, 140, -1));
 
         txtAreaDescricao.setColumns(20);
         txtAreaDescricao.setRows(3);
@@ -349,50 +346,32 @@ public class Novaview extends javax.swing.JFrame {
         txtAreaDescricao.setNextFocusableComponent(btnSalvar);
         jScrollPane2.setViewportView(txtAreaDescricao);
 
-        TelaEstoque.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 229, 360, -1));
+        TelaEstoque.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 190, 360, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pesquisar por nome:");
-        TelaEstoque.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+        TelaEstoque.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
 
         lblDescricao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblDescricao.setForeground(new java.awt.Color(255, 255, 255));
         lblDescricao.setText("Descrição:");
-        TelaEstoque.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, -1));
+        TelaEstoque.add(lblDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
 
         lblDataCompra.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblDataCompra.setForeground(new java.awt.Color(255, 255, 255));
         lblDataCompra.setText("Data da Compra:");
-        TelaEstoque.add(lblDataCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        TelaEstoque.add(lblDataCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
         lblQuantidade.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblQuantidade.setForeground(new java.awt.Color(255, 255, 255));
         lblQuantidade.setText("Quantidade:");
-        TelaEstoque.add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+        TelaEstoque.add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         lblNome.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(255, 255, 255));
         lblNome.setText("Nome:");
-        TelaEstoque.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
-
-        lblCodigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
-        lblCodigo.setText("Codigo:");
-        TelaEstoque.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
-
-        txtCodigoProduto.setBackground(new java.awt.Color(153, 153, 153));
-        txtCodigoProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        txtCodigoProduto.setForeground(new java.awt.Color(255, 255, 255));
-        txtCodigoProduto.setToolTipText("ID DO PRODUTO");
-        txtCodigoProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txtCodigoProduto.setOpaque(false);
-        txtCodigoProduto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCodigoProdutoFocusGained(evt);
-            }
-        });
-        TelaEstoque.add(txtCodigoProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 5, 180, -1));
+        TelaEstoque.add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         txtNomeProduto.setBackground(new java.awt.Color(153, 153, 153));
         txtNomeProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -401,7 +380,7 @@ public class Novaview extends javax.swing.JFrame {
         txtNomeProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtNomeProduto.setNextFocusableComponent(txtQuantidadeProduto);
         txtNomeProduto.setOpaque(false);
-        TelaEstoque.add(txtNomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 35, 180, -1));
+        TelaEstoque.add(txtNomeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 5, 180, -1));
 
         txtQuantidadeProduto.setBackground(new java.awt.Color(153, 153, 153));
         txtQuantidadeProduto.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -410,14 +389,14 @@ public class Novaview extends javax.swing.JFrame {
         txtQuantidadeProduto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtQuantidadeProduto.setNextFocusableComponent(txtValorCompraPorLitro);
         txtQuantidadeProduto.setOpaque(false);
-        TelaEstoque.add(txtQuantidadeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 65, 180, -1));
+        TelaEstoque.add(txtQuantidadeProduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 35, 180, -1));
 
         jDataCompra.setBackground(new java.awt.Color(255, 255, 255));
         jDataCompra.setToolTipText("DATA DA COMPRA");
         jDataCompra.setMaxSelectableDate(new java.util.Date(253370775699000L));
         jDataCompra.setNextFocusableComponent(txtAreaDescricao);
         jDataCompra.setOpaque(false);
-        TelaEstoque.add(jDataCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 155, 140, -1));
+        TelaEstoque.add(jDataCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 125, 140, -1));
 
         btnExcluir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
@@ -510,13 +489,13 @@ public class Novaview extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icon_question.png"))); // NOI18N
         jLabel4.setToolTipText("<html><h3>Ola!</h3><h4>Se estiver com alguma duvida com<br> os botoes, permanessa com o mouse sobre ele<br> que ele lhe dara uma breve explicação de como usalo!");
-        TelaEstoque.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 11, -1, -1));
+        TelaEstoque.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 11, -1, -1));
 
         lblValorCompraPorLitro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblValorCompraPorLitro.setForeground(new java.awt.Color(255, 255, 255));
         lblValorCompraPorLitro.setText("V/C por Litro:");
         lblValorCompraPorLitro.setToolTipText("VALOR DE COMPRA POR LITRO");
-        TelaEstoque.add(lblValorCompraPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
+        TelaEstoque.add(lblValorCompraPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
 
         txtValorCompraPorLitro.setBackground(new java.awt.Color(153, 153, 153));
         txtValorCompraPorLitro.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -525,13 +504,13 @@ public class Novaview extends javax.swing.JFrame {
         txtValorCompraPorLitro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtValorCompraPorLitro.setNextFocusableComponent(txtValorVendaPorLitro);
         txtValorCompraPorLitro.setOpaque(false);
-        TelaEstoque.add(txtValorCompraPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 95, 180, -1));
+        TelaEstoque.add(txtValorCompraPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 65, 180, -1));
 
         lblValorVendaPorLitro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblValorVendaPorLitro.setForeground(new java.awt.Color(255, 255, 255));
         lblValorVendaPorLitro.setText("V/V por Litro:");
         lblValorVendaPorLitro.setToolTipText("VALOR DE VENDA POR LITRO");
-        TelaEstoque.add(lblValorVendaPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+        TelaEstoque.add(lblValorVendaPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
 
         txtValorVendaPorLitro.setBackground(new java.awt.Color(153, 153, 153));
         txtValorVendaPorLitro.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
@@ -540,7 +519,7 @@ public class Novaview extends javax.swing.JFrame {
         txtValorVendaPorLitro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtValorVendaPorLitro.setNextFocusableComponent(jDataCompra);
         txtValorVendaPorLitro.setOpaque(false);
-        TelaEstoque.add(txtValorVendaPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 125, 180, -1));
+        TelaEstoque.add(txtValorVendaPorLitro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 95, 180, -1));
 
         jPanel4.add(TelaEstoque, "card2");
 
@@ -744,9 +723,6 @@ public class Novaview extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1AncestorAdded
 
-    private void txtCodigoProdutoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodigoProdutoFocusGained
-    }//GEN-LAST:event_txtCodigoProdutoFocusGained
-
     private void jPanelEmBreveMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelEmBreveMouseEntered
         jPanelEmBreve.setBackground(new Color(151, 130, 186));                // TODO add your handling code here:
         // TODO add your handling code here:
@@ -807,7 +783,6 @@ public class Novaview extends javax.swing.JFrame {
 
             if (valor) {
                 novo.novoProduto(
-                    Integer.parseInt(txtCodigoProduto.getText()),
                     txtNomeProduto.getText(),
                     Integer.parseInt(txtQuantidadeProduto.getText()),
                     Float.parseFloat(txtValorCompraPorLitro.getText().replace(",", ".")),
@@ -819,7 +794,6 @@ public class Novaview extends javax.swing.JFrame {
                 int resposta = JOptionPane.showConfirmDialog(null, "Deseja realmente salvar a alteração?", "EXCLUIR", JOptionPane.YES_NO_OPTION);
                 if (resposta == JOptionPane.YES_OPTION) {
                     novo.atualizarProduto(
-                        Integer.parseInt(txtCodigoProduto.getText()),
                         txtNomeProduto.getText(),
                         Integer.parseInt(txtQuantidadeProduto.getText()),
                         Float.parseFloat(txtValorCompraPorLitro.getText().replace(",", ".")),
@@ -854,9 +828,6 @@ public class Novaview extends javax.swing.JFrame {
         btnCancelar.setEnabled(true);
         btnCancelar.setForeground(Color.white);
 
-        lblCodigo.setForeground(Color.WHITE);
-        txtCodigoProduto.setEnabled(true);
-
         lblNome.setForeground(Color.WHITE);
         txtNomeProduto.setEnabled(true);
 
@@ -878,7 +849,7 @@ public class Novaview extends javax.swing.JFrame {
         jTableView.clearSelection();
         jTableView.setEnabled(false);
 
-        txtCodigoProduto.requestFocus();        // TODO add your handling code here:
+        txtNomeProduto.requestFocus();        // TODO add your handling code here:
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -946,7 +917,7 @@ public class Novaview extends javax.swing.JFrame {
 
         jTableView.setEnabled(false);
         jTableView.clearSelection();
-        txtCodigoProduto.requestFocus(); // TODO add your handling code here:
+        txtNomeProduto.requestFocus(); // TODO add your handling code here:
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -1061,9 +1032,6 @@ public class Novaview extends javax.swing.JFrame {
         btnExcluir.setEnabled(false);
         btnExcluir.setForeground(cinzaClaro);
 
-        txtCodigoProduto.setEnabled(false);
-        lblCodigo.setForeground(cinzaClaro);
-
         txtNomeProduto.setEnabled(false);
         lblNome.setForeground(cinzaClaro);
 
@@ -1096,7 +1064,7 @@ public class Novaview extends javax.swing.JFrame {
 
     private boolean naoCampoVazio() {
         boolean campo = false;
-        if (txtCodigoProduto.getText().equals("") || txtNomeProduto.getText().equals("") || txtQuantidadeProduto.getText().equals("")) {
+        if (txtNomeProduto.getText().equals("") || txtQuantidadeProduto.getText().equals("") || txtValorCompraPorLitro.getText().equals("") || txtValorVendaPorLitro.getText().equals("")) {
             campo = false;
             JOptionPane.showMessageDialog(null, "Por gentileza preencha todos os campos!");
         } else {
@@ -1118,7 +1086,6 @@ public class Novaview extends javax.swing.JFrame {
     }
 
     private void limpaTela() {
-        txtCodigoProduto.setText("");
         txtNomeProduto.setText("");
         txtQuantidadeProduto.setText("");
         jDataCompra.setDate(null);
@@ -1199,7 +1166,6 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JTable jTableView;
     private javax.swing.JTable jTableView2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDataCompra;
     private javax.swing.JLabel lblDescricao;
     private javax.swing.JLabel lblNome;
@@ -1207,7 +1173,6 @@ public class Novaview extends javax.swing.JFrame {
     private javax.swing.JLabel lblValorCompraPorLitro;
     private javax.swing.JLabel lblValorVendaPorLitro;
     private javax.swing.JTextArea txtAreaDescricao;
-    private javax.swing.JTextField txtCodigoProduto;
     private javax.swing.JTextField txtNomeProduto;
     private javax.swing.JTextField txtPesquisarProduto;
     private javax.swing.JTextField txtQuantidadeProduto;

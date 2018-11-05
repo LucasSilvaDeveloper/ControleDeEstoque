@@ -59,8 +59,7 @@ public class Produto {
      * @param descricao alguma informação relevente do Produto da qual nao seja
      * o proprio nome
      */
-    public Produto(int id, String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
-        setId(id);
+    public Produto(String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
         setNomeProduto(nomeProduto);
         setQuantidadeProduto(quantidadeProduto);
         setValordecompra(valordecompra);
