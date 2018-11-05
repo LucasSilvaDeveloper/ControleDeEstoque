@@ -52,8 +52,8 @@ public class produtoController {
      * @param dataCompra data da compra
      * @param descricao descrição do produto caso haja necessidade
      */
-    public void novoProduto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
-        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, dataCompra, descricao);
+    public void novoProduto(int id, String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
+        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, valordecompra, valordevenda, dataCompra, descricao);
         novoProduto.gravaProduto(novo);
     }
 
@@ -70,8 +70,8 @@ public class produtoController {
      * @param dataCompra nova data da compra
      * @param descricao nova descrição
      */
-    public void atualizarProduto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
-        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, dataCompra, descricao);
+    public void atualizarProduto(int id, String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
+        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, valordecompra, valordevenda, nomeProduto, nomeProduto);
         novoProduto.atualizarProduto(novo);
     }
 
@@ -88,5 +88,4 @@ public class produtoController {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.deletarProduto(novo);
     }
-
 }

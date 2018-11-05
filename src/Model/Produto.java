@@ -17,9 +17,27 @@ public class Produto {
     private int id;
     private String nomeProduto;
     private int quantidadeProduto;
+    private Float valordecompra;
+    private Float valordevenda;
+
+    public Float getValordecompra() {
+        return valordecompra;
+    }
+
+    public void setValordecompra(Float valordecompra) {
+        this.valordecompra = valordecompra;
+    }
+
+    public Float getValordevenda() {
+        return valordevenda;
+    }
+
+    public void setValordevenda(Float valordevenda) {
+        this.valordevenda = valordevenda;
+    }
     private String dataCompra;
     private String descricao;
-
+    
     /**
      * Metodo Construtor default da classe <b>Produto</b><br>
      * <b>Uso</b><br>
@@ -41,10 +59,12 @@ public class Produto {
      * @param descricao alguma informação relevente do Produto da qual nao seja
      * o proprio nome
      */
-    public Produto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
+    public Produto(int id, String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
         setId(id);
         setNomeProduto(nomeProduto);
         setQuantidadeProduto(quantidadeProduto);
+        setValordecompra(valordecompra);
+        setValordevenda(valordevenda);
         setDataCompra(dataCompra);
         setDescricao(descricao);
     }

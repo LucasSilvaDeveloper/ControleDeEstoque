@@ -34,7 +34,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -65,15 +65,15 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="-1" height="30"/>
+              <AbsoluteConstraints x="0" y="0" width="1070" height="30"/>
             </Constraint>
           </Constraints>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="830" pref="830" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="989" max="32767" attributes="0"/>
                       <Component id="txtminimiza" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" pref="40" max="-2" attributes="0"/>
@@ -83,7 +83,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtminimiza" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -145,7 +145,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="30" width="260" height="520"/>
+              <AbsoluteConstraints x="0" y="40" width="260" height="580"/>
             </Constraint>
           </Constraints>
 
@@ -163,7 +163,7 @@
                       <Component id="jPanelControleEstoque" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanelEmBreve" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="425" max="32767" attributes="0"/>
+                      <EmptySpace pref="483" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -264,7 +264,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="30" width="650" height="520"/>
+              <AbsoluteConstraints x="260" y="30" width="810" height="590"/>
             </Constraint>
           </Constraints>
 
@@ -290,7 +290,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="273" width="650" height="247"/>
+                      <AbsoluteConstraints x="0" y="350" width="810" height="240"/>
                     </Constraint>
                   </Constraints>
 
@@ -344,7 +344,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="311" y="235" width="140" height="-1"/>
+                      <AbsoluteConstraints x="311" y="295" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -354,7 +354,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="160" width="360" height="-1"/>
+                      <AbsoluteConstraints x="161" y="229" width="360" height="-1"/>
                     </Constraint>
                   </Constraints>
 
@@ -364,6 +364,10 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="3"/>
+                        <Property name="toolTipText" type="java.lang.String" value="ALGUMA INFORMA&#xc7;&#xc3;O REFERENTE AO PRODUTO"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnSalvar"/>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -380,7 +384,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="240" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="160" y="300" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -396,7 +400,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="140" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="160" y="200" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -412,7 +416,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="100" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="160" y="160" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -428,7 +432,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="70" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="160" y="70" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -444,7 +448,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="40" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="160" y="40" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -460,7 +464,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="161" y="10" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="160" y="10" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -475,7 +479,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Nome do produto"/>
+                    <Property name="toolTipText" type="java.lang.String" value="ID DO PRODUTO"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -490,7 +494,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="291" y="0" width="180" height="-1"/>
+                      <AbsoluteConstraints x="291" y="5" width="180" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -505,7 +509,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Nome do produto"/>
+                    <Property name="toolTipText" type="java.lang.String" value="NOME DO PRODUTO"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -520,7 +524,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="291" y="30" width="180" height="-1"/>
+                      <AbsoluteConstraints x="291" y="35" width="180" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -535,7 +539,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="toolTipText" type="java.lang.String" value="Nome do produto"/>
+                    <Property name="toolTipText" type="java.lang.String" value="QUANTIDADE EM LITROS"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="0" right="0" top="0">
@@ -544,13 +548,13 @@
                       </Border>
                     </Property>
                     <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="jDataCompra"/>
+                      <ComponentRef name="txtValorCompraPorLitro"/>
                     </Property>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="291" y="60" width="180" height="-1"/>
+                      <AbsoluteConstraints x="290" y="65" width="180" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -559,14 +563,18 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="DATA DA COMPRA"/>
                     <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
                       <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,-26,112,123,20,-2,56,120"/>
+                    </Property>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtAreaDescricao"/>
                     </Property>
                     <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="289" y="95" width="140" height="-1"/>
+                      <AbsoluteConstraints x="289" y="155" width="140" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -683,6 +691,9 @@
                     <Property name="focusPainted" type="boolean" value="false"/>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="iconTextGap" type="int" value="10"/>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="btnCancelar"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
@@ -740,6 +751,100 @@
                     </Constraint>
                   </Constraints>
                 </Component>
+                <Component class="javax.swing.JLabel" name="lblValorCompraPorLitro">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="V/C por Litro:"/>
+                    <Property name="toolTipText" type="java.lang.String" value="VALOR DE COMPRA POR LITRO"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="160" y="100" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtValorCompraPorLitro">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="99" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="15" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="VALOR EM REAIS DA COMPRA DO PRODUTO"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="2" left="0" right="0" top="0">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </MatteColorBorder>
+                      </Border>
+                    </Property>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtValorVendaPorLitro"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="290" y="95" width="180" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblValorVendaPorLitro">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="V/V por Litro:"/>
+                    <Property name="toolTipText" type="java.lang.String" value="VALOR DE VENDA POR LITRO"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="160" y="130" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtValorVendaPorLitro">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="99" green="99" red="99" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="15" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value="VALOR DE VENDA DO PRODUTO EM REIAS"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                        <MatteColorBorder bottom="2" left="0" right="0" top="0">
+                          <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                        </MatteColorBorder>
+                      </Border>
+                    </Property>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="jDataCompra"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="290" y="125" width="180" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="TelaVendas">
@@ -766,7 +871,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jScrollPane5" min="-2" pref="528" max="-2" attributes="0"/>
@@ -821,7 +926,7 @@
                           <Component id="jScrollPane5" min="-2" pref="217" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnFinalizar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="99" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
