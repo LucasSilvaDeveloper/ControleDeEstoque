@@ -17,9 +17,27 @@ public class Produto {
     private int id;
     private String nomeProduto;
     private int quantidadeProduto;
+    private Float valordecompra;
+    private Float valordevenda;
+
+    public Float getValordecompra() {
+        return valordecompra;
+    }
+
+    public void setValordecompra(Float valordecompra) {
+        this.valordecompra = valordecompra;
+    }
+
+    public Float getValordevenda() {
+        return valordevenda;
+    }
+
+    public void setValordevenda(Float valordevenda) {
+        this.valordevenda = valordevenda;
+    }
     private String dataCompra;
     private String descricao;
-
+    
     /**
      * Metodo Construtor default da classe <b>Produto</b><br>
      * <b>Uso</b><br>
@@ -41,6 +59,15 @@ public class Produto {
      * @param descricao alguma informação relevente do Produto da qual nao seja
      * o proprio nome
      */
+    public Produto(String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
+        setNomeProduto(nomeProduto);
+        setQuantidadeProduto(quantidadeProduto);
+        setValordecompra(valordecompra);
+        setValordevenda(valordevenda);
+        setDataCompra(dataCompra);
+        setDescricao(descricao);
+    }
+
     public Produto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
         setId(id);
         setNomeProduto(nomeProduto);
@@ -48,7 +75,9 @@ public class Produto {
         setDataCompra(dataCompra);
         setDescricao(descricao);
     }
-
+    
+    
+    
     /**
      *
      * @return int codigo do produto
@@ -161,17 +190,7 @@ public class Produto {
      */
     @Override
     public String toString() {
-        return String.format(
-                "Id: %d\n"
-                + "Nome: %s\n"
-                + "Quantidade: %d\n"
-                + "Data da compra: %s\n"
-                + "Descrição: %s",
-                getId(),
-                getNomeProduto(),
-                getQuantidadeProduto(),
-                getDataCompra(),
-                getDescricao());
+        return  getNomeProduto() + " - " + getQuantidadeProduto();
     }
 
 }

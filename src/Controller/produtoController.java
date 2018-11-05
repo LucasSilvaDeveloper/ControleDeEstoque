@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DAO.ProdutoConsultaDAO;
 import DAO.ProdutoDAO;
 import Model.Produto;
 
@@ -52,8 +53,8 @@ public class produtoController {
      * @param dataCompra data da compra
      * @param descricao descrição do produto caso haja necessidade
      */
-    public void novoProduto(int id, String nomeProduto, int quantidadeProduto, String dataCompra, String descricao) {
-        Produto novo = new Produto(id, nomeProduto, quantidadeProduto, dataCompra, descricao);
+    public void novoProduto(String nomeProduto, int quantidadeProduto, float valordecompra, float valordevenda, String dataCompra, String descricao) {
+        Produto novo = new Produto(nomeProduto, quantidadeProduto, valordecompra, valordevenda, dataCompra, descricao);
         novoProduto.gravaProduto(novo);
     }
 
@@ -88,5 +89,13 @@ public class produtoController {
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.deletarProduto(novo);
     }
-
+    
+    public void atualizarQuantidadeDisponivel(int id, int quantidade){
+        Produto novo = new Produto();
+        novo.setId(id);
+        novo.setQuantidadeProduto(quantidade);
+    
+        ProdutoDAO atualizarQuantidade = new ProdutoDAO();
+        atualizarQuantidade.atualizarQuantidadeProduto(novo);
+    }
 }
