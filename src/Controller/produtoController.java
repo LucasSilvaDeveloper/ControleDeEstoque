@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import DAO.ProdutoConsultaDAO;
 import DAO.ProdutoDAO;
 import Model.Produto;
 
@@ -87,5 +88,14 @@ public class produtoController {
         novo.setId(id);
         ProdutoDAO produtoDAO = new ProdutoDAO();
         produtoDAO.deletarProduto(novo);
+    }
+    
+    public void atualizarQuantidadeDisponivel(int id, int quantidade){
+        Produto novo = new Produto();
+        novo.setId(id);
+        novo.setQuantidadeProduto(quantidade);
+    
+        ProdutoDAO atualizarQuantidade = new ProdutoDAO();
+        atualizarQuantidade.atualizarQuantidadeProduto(novo);
     }
 }

@@ -247,4 +247,62 @@ public class ProdutoDAO {
 
         }
     }
+    
+    public void atualizarQuantidadeProduto(Produto p) {
+
+        String sql = "update Produto "
+                + "set quantidade = ?"
+                + "where id = ?;";
+
+        PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
+        try {
+            preparedStatement.setInt(1, p.getQuantidadeProduto());
+            preparedStatement.setInt(2, p.getId());
+
+            int resultado = preparedStatement.executeUpdate();
+            deletarProdutoVendasAposFinalizar(p.getId());
+//            String a = resultado == 1?"deu certo":"nao deu";
+//            System.out.println(a);
+            JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso!");
+            
+        } catch (SQLException e) {
+            System.out.println("erro ao salvar: " + e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            conexaosqlite.desconectar();
+
+        }
+    }
+    
+    public void deletarProdutoVendasAposFinalizar(int id) {
+
+        String sql = "delete from Retirada where id_prod = ?";
+
+        PreparedStatement preparedStatement = conexaosqlite.criarPreparedStatemant(sql);
+        try {
+            preparedStatement.setInt(1, id);
+
+            preparedStatement.executeUpdate();
+
+
+        } catch (SQLException e) {
+            System.out.println("erro ao excluir: " + e);
+        } finally {
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                }
+            }
+            conexaosqlite.desconectar();
+
+        }
+    }
 }

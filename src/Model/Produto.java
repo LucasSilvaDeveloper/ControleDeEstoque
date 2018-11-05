@@ -190,17 +190,7 @@ public class Produto {
      */
     @Override
     public String toString() {
-        return String.format(
-                "Id: %d\n"
-                + "Nome: %s\n"
-                + "Quantidade: %d\n"
-                + "Data da compra: %s\n"
-                + "Descrição: %s",
-                getId(),
-                getNomeProduto(),
-                getQuantidadeProduto(),
-                getDataCompra(),
-                getDescricao());
+        return  getNomeProduto() + " - " + getQuantidadeProduto();
     }
 
 }
