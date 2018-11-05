@@ -998,6 +998,10 @@ public class Novaview extends javax.swing.JFrame {
         for(int i=0;i<jTableView.getRowCount();i++){
             if(jTableView.getValueAt(i, 1).toString().equals(jComboBox1.getSelectedItem().toString())){
                 cod = Integer.parseInt(jTableView.getValueAt(i, 0).toString());
+                if(Integer.parseInt(jTextField1.getText())>Integer.parseInt(jTableView.getValueAt(i, 2).toString())){
+                    JOptionPane.showMessageDialog(null,"Valor ultrapassou o limite do estoque.");
+                    return;
+                }
             }
         }
         for(int i=0;i<jTableView2.getRowCount();i++){
