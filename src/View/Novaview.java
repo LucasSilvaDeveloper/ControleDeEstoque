@@ -503,7 +503,7 @@ public class Novaview extends javax.swing.JFrame {
         txtValorCompraPorLitro.setBackground(new java.awt.Color(153, 153, 153));
         txtValorCompraPorLitro.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         txtValorCompraPorLitro.setForeground(new java.awt.Color(255, 255, 255));
-        txtValorCompraPorLitro.setToolTipText("VALOR EM REAIS DA COMPRA DO PRODUTO");
+        txtValorCompraPorLitro.setToolTipText("VALOR EM REAIS DA COMPRA DO PRODUTO POR LITRO");
         txtValorCompraPorLitro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtValorCompraPorLitro.setNextFocusableComponent(txtValorVendaPorLitro);
         txtValorCompraPorLitro.setOpaque(false);
@@ -518,7 +518,7 @@ public class Novaview extends javax.swing.JFrame {
         txtValorVendaPorLitro.setBackground(new java.awt.Color(153, 153, 153));
         txtValorVendaPorLitro.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         txtValorVendaPorLitro.setForeground(new java.awt.Color(255, 255, 255));
-        txtValorVendaPorLitro.setToolTipText("VALOR DE VENDA DO PRODUTO EM REIAS");
+        txtValorVendaPorLitro.setToolTipText("VALOR DE VENDA DO PRODUTO EM REIAS POR LITRO");
         txtValorVendaPorLitro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txtValorVendaPorLitro.setNextFocusableComponent(jDataCompra);
         txtValorVendaPorLitro.setOpaque(false);

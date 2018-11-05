@@ -290,19 +290,8 @@ public class ProdutoDAO {
 
             preparedStatement.executeUpdate();
 
-
         } catch (SQLException e) {
             System.out.println("erro ao excluir: " + e);
-        } finally {
-            if (preparedStatement != null) {
-                try {
-                    preparedStatement.close();
-                } catch (SQLException ex) {
-                    System.out.println(ex);
-                }
-            }
-            conexaosqlite.desconectar();
-
         }
     }
 }
